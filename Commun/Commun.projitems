@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>e4f181f2-2484-428d-9c1a-e199b4dbd4d9</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Commun</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)SharedDTOs\PayInfosDTO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedDTOs\PayRequestDTO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedData\TimeSheetContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedModels\Project.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedModels\TimeSheet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SharedModels\User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)SharedModels\" />
+  </ItemGroup>
+</Project>

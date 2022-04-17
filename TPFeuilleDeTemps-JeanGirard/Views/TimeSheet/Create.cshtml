@@ -1,0 +1,59 @@
+﻿@using TPFeuilleDeTemps_JeanGirard.Models.ViewModels
+@model TPFeuilleDeTemps_JeanGirard.Models.ViewModels.TimeSheetViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="row  d-flex justify-content-center">
+    <div class="col-lg-4">
+        <h1>Create</h1>
+
+        <h4>
+            Time Sheet for @User.Identity?.Name
+        </h4>
+        <hr/>
+
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Projects" class="control-label"></label>
+                <select asp-for="SelectedProject"
+                        asp-items="@(Model.Projects)" class="custom-select" required>
+                </select>
+                <span asp-validation-for="SelectedProject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDateTime" class="control-label"></label>
+                <input asp-for="StartDateTime" max="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")" min="@DateTime.Now.AddYears(-1).ToString("yyyy-MM-ddThh:mm")" class="form-control" required/>
+                <span asp-validation-for="StartDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDateTime" class="control-label"></label>
+                <input asp-for="EndDateTime" max="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")" min="@DateTime.Now.AddYears(-1).ToString("yyyy-MM-ddThh:mm")" class="form-control" required/>
+                <span asp-validation-for="EndDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary"/>
+            </div>
+        </form>
+        @if (TempData["UserMessage"] != null)
+        {
+            ValidationMessageForView message = (ValidationMessageForView)TempData["UserMessage"];
+            <div class="alert @message.CssClassName">
+                <strong>@message.Title</strong>
+                @message.Message
+            </div>
+        }
+
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <partial name="_ValidationScriptsPartial"/>
+}
