@@ -18,10 +18,10 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      working-directory: TPFeuilleDeTemps-JeanGirard\TPFeuilleDeTemps-JeanGirard.sln
-      run: dotnet restore
+      working-directory: TPFeuilleDeTemps-JeanGirard\
+      run: dotnet restore TPFeuilleDeTemps-JeanGirard.sln
     - name: Build
-      working-directory: TPFeuilleDeTemps-JeanGirard\TPFeuilleDeTemps-JeanGirard.sln
-      run: dotnet build --no-restore
+      working-directory: TPFeuilleDeTemps-JeanGirard\
+      run: dotnet build --no-restore TPFeuilleDeTemps-JeanGirard.sln
     #- name: Test
      # run: dotnet test --no-build --verbosity normal
